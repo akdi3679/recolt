@@ -3,26 +3,27 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { hero } from "@/data/hero";
 
-const fallbackHeroImage = {
+// Single hero image (replace with your own local image path if needed, e.g., "/images/hero.jpg")
+const heroImage = {
   src: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1800&q=80",
   alt: "Terres cultivées vues du ciel",
 };
 
 export function Hero() {
-  const image = hero.carousel?.[0] ?? fallbackHeroImage;
-
   return (
     <section className="relative flex h-[100svh] min-h-[600px] flex-col overflow-hidden bg-forest-950 text-sand-100">
+      {/* ─── Full background image ─── */}
       <div aria-hidden className="absolute inset-0">
         <Image
-          src={image.src}
-          alt={image.alt}
+          src={heroImage.src}
+          alt={heroImage.alt}
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
 
+        {/* Dark overlay — stronger on left for text, lighter on right for image */}
         <div
           className="absolute inset-0"
           style={{
@@ -31,6 +32,7 @@ export function Hero() {
           }}
         />
 
+        {/* Bottom fade into next section */}
         <div
           className="absolute inset-x-0 bottom-0 h-32"
           style={{
@@ -40,6 +42,7 @@ export function Hero() {
         />
       </div>
 
+      {/* ─── Content ─── */}
       <Container className="relative z-10 flex flex-1 items-center pb-16 pt-24 lg:pt-28">
         <div className="max-w-2xl">
           <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-[#4ADE80]">
