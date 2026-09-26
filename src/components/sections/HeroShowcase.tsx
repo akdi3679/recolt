@@ -41,8 +41,7 @@ export function HeroShowcase() {
       (item) => item.available
     ) as CounterItem[];
 
-    const availablePosts = (blog?.posts ?? []) as BlogPost[];
-
+const availablePosts = (blog?.posts ?? []) as readonly BlogPost[];
     const modes: Mode[] = [];
     if (availableCounters.length >= 3) modes.push("counters");
     if (availablePosts.length > 0) modes.push("blog");
