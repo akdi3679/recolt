@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { blog } from "@/data/blog";
 import { formatDate } from "@/lib/format";
 import { PageHero } from "@/components/layout/PageHero";
-
+import { pageImages } from "@/data/pages";
 export const metadata: Metadata = {
   title: "Blog",
   description:
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
-    <PageHero
+<PageHero
   eyebrow="Blog"
-  visual="blog"
-  title={
-    <>
+  image={pageImages.blog}
+  imageLabel="Ressources"
+  title={    <>
       Comprendre
       <br />
       la ville nourricière.
